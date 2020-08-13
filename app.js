@@ -18,7 +18,7 @@ mongoose.connect(process.env.databaseURL,
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs")
 app.use(express.static(__dirname+"/public"));
-//seed();
+seed();
 
 
 //PASSPORT CONFIG
@@ -48,6 +48,6 @@ app.use("/", authRoutes);
 
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, process.env.IP, function() {
 	console.log('YelpCamp server has started');
 })
